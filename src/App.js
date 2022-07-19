@@ -1,24 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
 
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
+import { ConfigProvider } from 'antd'
+import moment from 'moment';
+import 'moment/locale/zh-cn';
+import locale from 'antd/lib/locale/zh_CN';
+
+import routes from './router'
+
+import Home from './pages/home'
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ConfigProvider locale={locale}>
+      <div>
+        <Home></Home>
+      </div>
+    </ConfigProvider> 
   );
 }
 

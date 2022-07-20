@@ -1,5 +1,6 @@
 import { Layout } from 'antd';
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 
 const { Header, Footer, Sider, Content } = Layout;
 
@@ -18,7 +19,9 @@ class Home extends React.Component {
                 <Sider>Sider</Sider>
                 <Layout>
                     <Header>Header</Header>
-                    <Content>Content</Content>
+                    <Content>
+                        <Outlet/>
+                    </Content>
                     <Footer>Footer</Footer>
                 </Layout>
             </Layout>

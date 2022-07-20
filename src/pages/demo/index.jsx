@@ -1,6 +1,6 @@
-import React from 'react'; 
- 
-class Home extends React.Component{
+import React from "react";
+
+class Demo extends React.Component{
     constructor(props){
         super(props)
         this.state = {}
@@ -8,9 +8,9 @@ class Home extends React.Component{
 
     render(){
         return(
-            <div>home</div>
+            <div>demo</div>
         )
     }
 }
 
-export default Home
+export default Demo 

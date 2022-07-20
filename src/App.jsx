@@ -1,61 +1,29 @@
+import logo from './logo.svg';
 import './App.less';
 
 import React from 'react';
-
-import { Outlet, Link, Routes, Route } from "react-router-dom";
-
-// 由于 antd 组件的默认文案是英文，所以需要修改为中文
-import zhCN from 'antd/es/locale/zh_CN';
-import moment from 'moment';
-import 'moment/locale/zh-cn';
-
-import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
-
-import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
-import { Layout, Menu } from 'antd';
-
-moment.locale('zh-cn');
+import { NavLink, Route, Routes } from "react-router-dom";
+import Login from './pages/login'
+import Section from './pages/section'
+import Home from './pages/home'
+import CrossSection from './pages/section/cross'
+import VerticalSection from './pages/section/vertical'
+import Demo from './pages/demo'
 
 function App() {
 
-  const { Header, Footer, Sider, Content } = Layout;
+  return <Routes>
+    <Route path='/login' element={<Login />}></Route>
 
-  const items = [
-    {
-      label: <Link to="/section">断面展示</Link>,
-      key: 'item-1'
-    }, // 菜单项务必填写 key
-    {
-      label: <Link to="/demo">demo</Link>,
-      key: 'item-2'
-    }
-  ];
+    <Route path='/' element={<Home />}>
+      <Route path='section' element={<Section />}>
+        <Route path='cross' element={<CrossSection />}></Route>
+        <Route path='vertical' element={<VerticalSection />}></Route>
+      </Route>
 
-  return (
-    <div>
-      <Layout style={{ minHeight: '100vh' }}>
-        <Sider breakpoint="md" collapsedWidth="0">
-          <div className="logo" />
-
-          <Menu
-            theme="dark"
-            mode="inline"
-            defaultSelectedKeys={['1']}
-            items={items}
-          />
-        </Sider>
-
-        <Layout>
-          <Header className={{ height: 500 }}>Header</Header>
-          <Content className={{ height: 500 }}>
-            <Outlet />
-          </Content>
-          <Footer>
-          </Footer>
-        </Layout>
-      </Layout>
-    </div>
-  );
+      <Route path='demo' element={<Demo />}></Route>
+    </Route>
+  </Routes>
 }
 
-export default App;
+export default App 

@@ -25,7 +25,7 @@ class CrossSection extends React.Component {
                                 </Select>
                             </Form.Item>
 
-                            <Form.Item name="" label="切面位置" rules={[{ required: true }]}>
+                            <Form.Item name="" label="横切位置" rules={[{ required: true }]}>
                                 <Input placeholder="请输入位置" />
                             </Form.Item>
                             <Form.Item  >

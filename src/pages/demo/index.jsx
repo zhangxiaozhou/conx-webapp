@@ -8,7 +8,7 @@ class Demo extends React.Component{
 
     render(){
         return(
-            <div>demo</div>
+            <div>测试</div>
         )
     }
 }

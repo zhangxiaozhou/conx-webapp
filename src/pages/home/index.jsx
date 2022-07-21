@@ -1,11 +1,17 @@
-import { Layout } from 'antd';
-import React from 'react'; 
-import { NavLink,Outlet } from "react-router-dom"
-  
+import React from 'react';
+
+import { Layout, Avatar, Image, Row, Col } from 'antd';
+import { Link, Outlet } from "react-router-dom"
+
+import logoImg from '../../assets/images/red-logo@2x.png'
+import './index.scss'
+
+import ConxMenu from '../../components/menu'
+
 const { Header, Footer, Sider, Content } = Layout;
-  
+
 class Home extends React.Component {
-    
+
     constructor(props) {
         super(props)
         this.state = {}
@@ -14,13 +20,28 @@ class Home extends React.Component {
     render() {
         return (
             <Layout style={{ minHeight: '100vh' }}>
-                <Sider>Sider</Sider>
+                <Sider> 
+                    <Link to="/"><div className='logo'>
+                        <img alt={'山推'} src={logoImg} />
+                    </div></Link>
+ 
+                    < ConxMenu />
+                </Sider>
                 <Layout>
-                    <Header>Header</Header> 
+                    <Header style={{ height: 66 }}>
+                        <Row>
+                            <Col span={23} order={1}>
+                                <span style={{fontSize: '20px', fontFamily:'serif'}}>山推智慧施工平台</span>
+                            </Col>
+                            <Col span={1} order={2}>
+                                <Avatar src={<Image src="https://joeschmoe.io/api/v1/random" style={{ width: 32 }} />} />
+                            </Col>
+                        </Row>
+                    </Header>
                     <Content>
-                        <Outlet/> 
+                        <Outlet />
                     </Content>
-                    <Footer>Footer</Footer>
+                    <Footer></Footer>
                 </Layout>
             </Layout>
         )

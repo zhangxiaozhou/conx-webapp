@@ -5,6 +5,7 @@ import Section from '../pages/section'
 import CrossSection from '../pages/section/cross'
 import VerticalSection from '../pages/section/vertical'
 
+import Projects from '../pages/projects'
 import Demo from '../pages/demo'
 
 let routes = [
@@ -13,19 +14,26 @@ let routes = [
     },
     {
         path: "/", element: <Home />,
-        children: [
+        children: [ 
+            {  index: true, element: <Projects /> },
             {
                 path: "section", element: <Section />,
                 children: [
                     {
-                        path: "cross", element: <CrossSection />
+                        index: true,
+                        element: <CrossSection />
                     },
                     {
-                        path: "vertical", element: <VerticalSection />
+                        path: 'cross',
+                        element: <CrossSection />
+                    },
+                    {
+                        path: "vertical", 
+                        element: <VerticalSection />
                     }
                 ]
             },
-            { path: "demo", element: <Demo /> }
+            {  path: 'projects', element: <Projects /> },
         ],
     }
 ]

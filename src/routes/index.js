@@ -33,7 +33,8 @@ let routes = [
                     }
                 ]
             },
-            {  path: 'projects', element: <Projects /> },
+            { path: 'projects', element: <Projects /> },
+            { path: 'demo', element: <Demo/>}
         ],
     }
 ]

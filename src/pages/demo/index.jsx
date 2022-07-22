@@ -1,16 +1,31 @@
-import React from "react";
+import React from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { decrement, increment } from '../../redux/features/counter/counterSlice'  
 
-class Demo extends React.Component{
-    constructor(props){
-        super(props)
-        this.state = {}
-    }
+function Demo() {
 
-    render(){
-        return(
-            <div>测试</div>
-        )
-    }
+  const count = useSelector((state) => state.counter.value)
+  const dispatch = useDispatch()
+
+  return(
+    <div>
+    <div>
+      <button
+        aria-label="Increment value"
+        onClick={() => dispatch(increment())}
+      >
+        Increment
+      </button>
+      <span>{count}</span>
+      <button
+        aria-label="Decrement value"
+        onClick={() => dispatch(decrement())}
+      >
+        Decrement
+      </button>
+    </div>
+  </div>
+)
 }
 
 export default Demo 

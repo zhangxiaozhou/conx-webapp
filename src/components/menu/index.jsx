@@ -14,7 +14,8 @@ const items = [
     },  
     { 
         label: <Link to="/demo">测试页面</Link>, 
-        key: 'item-2' }
+        key: 'item-2' 
+    }
 ];
 
 class ConxMenu extends React.Component {

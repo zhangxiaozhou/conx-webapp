@@ -1,9 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { loginRequest } from '../../../service/http'
+import { createAsyncThunk } from '@reduxjs/toolkit'
+
+export const loginApi = createAsyncThunk( 
+  'users/login',
+  async (params, thunkAPI) => {
+    const response = await loginRequest(params)
+
+    console.log(response)
+    return response
+  }
+)
 
 export const userInfoSlice = createSlice({
   name: 'user',
   initialState: {
-    userToken: 'f9cf0b266ea63ea485cc691bad6ad5d9b810bb92',
+    userToken: null,
     me: {
       "uuid": "52a79636b59d4fbda46f13b5fb32a2b2",
       "username": "zhangxiaozhou",
@@ -296,26 +308,22 @@ export const userInfoSlice = createSlice({
         ],
         "managed_storage_sum": 13273
       }
-    ],
-    selectedProject: {}
+    ]
   },
-  reducers: {
-    login: (state, action) => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
-      //state.value += 1
-
-
-    },
-    logout: (state, action) => {
-      state.value -= 1
-    }
+  reducers: { 
   },
+  extraReducers: (build)=>{
+    build.addCase(loginApi.fulfilled, (state, action) => {
+      const data = action.payload  
+      const {token} = data
+
+      state.userToken = token
+      console.log('token:' + token)
+    }) 
+  }
 })
 
 // Action creators are generated for each case reducer function
-export const { login, logout } = userInfoSlice.actions
+export const { actions, reducer } = userInfoSlice.actions
 
 export default userInfoSlice.reducer

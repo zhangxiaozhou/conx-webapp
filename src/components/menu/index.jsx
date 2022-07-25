@@ -2,7 +2,11 @@ import React from "react";
 import { Menu } from 'antd'
 import { Link } from 'react-router-dom'
 
-const items = [
+const items = [ 
+    {
+        label: <Link to="/projects">切换工程</Link>,
+        key: 'projects',
+    },
     { 
         label: '数据分析', 
         key: 'item-1',

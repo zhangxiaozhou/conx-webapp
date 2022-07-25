@@ -15,7 +15,7 @@ let routes = [
     {
         path: "/", element: <Home />,
         children: [ 
-            {  index: true, element: <Projects /> },
+            { index: true, element: <Projects /> },
             {
                 path: "section", element: <Section />,
                 children: [

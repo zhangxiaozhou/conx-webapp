@@ -20,7 +20,7 @@ class Home extends React.Component {
     render() {
         return (
             <Layout style={{ minHeight: '100vh' }}>
-                <Sider> 
+                <Sider style={{margin: '0 3px 0 0'}}> 
                     <Link to="/"><div className='logo'>
                         <img alt={'山推'} src={logoImg} />
                     </div></Link>

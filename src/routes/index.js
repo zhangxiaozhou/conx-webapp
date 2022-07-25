@@ -1,5 +1,5 @@
 import Login from '../pages/login'
-import Home from '../pages/home'
+import HomeLayout from '../pages/layout'
 
 import Section from '../pages/section' 
 import CrossSection from '../pages/section/cross'
@@ -13,7 +13,7 @@ let routes = [
         path: '/login', element: <Login />
     },
     {
-        path: "/", element: <Home />,
+        path: "/", element: <HomeLayout />,
         children: [  
             {
                 path: "section", element: <Section />,

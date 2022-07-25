@@ -10,7 +10,7 @@ import ConxMenu from '../../components/menu'
 
 const { Header, Footer, Sider, Content } = Layout;
 
-class Home extends React.Component {
+class HomeLayout extends React.Component {
 
     constructor(props) {
         super(props)
@@ -48,4 +48,4 @@ class Home extends React.Component {
     }
 }
 
-export default Home
+export default HomeLayout

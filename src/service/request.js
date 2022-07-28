@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const BASE_URL = process.env.BASE_URL;
-const TIMEOUT = 5000;
+const TIMEOUT = 50000;
 
 const instance = axios.create({    // 创建axios实例，在这里可以设置请求的默认配置
   timeout: TIMEOUT, // 设置超时时间
@@ -13,7 +13,7 @@ instance.defaults.headers.post['Content-Type'] = 'application/json'
 
 /** 添加请求拦截器 **/
 instance.interceptors.request.use(config => {
-  //config.headers['token'] = sessionStorage.getItem('token') || ''
+  
   // hide = message.loading({content: 'Loading...', duration: 0});
   // 在这里：可以根据业务需求可以在发送请求之前做些什么:例如我这个是导出文件的接口，因为返回的是二进制流，所以需要设置请求响应类型为blob，就可以在此处设置。
   // if (config.url.includes('pur/contract/export')) {
@@ -23,6 +23,8 @@ instance.interceptors.request.use(config => {
   // if (config.url.includes('pur/contract/upload')) {
   //   config.headers['Content-Type'] = 'multipart/form-data'
   // }
+  config.headers['Authorization'] = 'Token ' + sessionStorage.getItem('userToken') || ''
+
   return config
 }, error => {
   // 对请求错误做些什么

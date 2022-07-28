@@ -1,7 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import {get, post} from '../../../service/request'
-
 export const counterSlice = createSlice({
   name: 'counter',
   initialState: {

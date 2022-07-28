@@ -1,0 +1,10 @@
+.crossSection{  
+    width: calc(100%);
+    height: calc(100%);
+
+    .canvas {
+        width: calc(86%);
+        height: calc(80%);  
+        padding: 10px;
+    } 
+}

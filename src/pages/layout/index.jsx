@@ -19,7 +19,7 @@ class HomeLayout extends React.Component {
 
     render() {
         return (
-            <Layout style={{ minHeight: '100vh' }}>
+            <Layout className='rootContent' >
                 <Sider style={{margin: '0 3px 0 0'}}> 
                     <Link to="/"><div className='logo'>
                         <img alt={'山推'} src={logoImg} />
@@ -38,10 +38,11 @@ class HomeLayout extends React.Component {
                             </Col>
                         </Row>
                     </Header>
-                    <Content>
+                    <Content className='rootContent'>
                         <Outlet />
                     </Content>
-                    <Footer></Footer>
+                    <Footer> 
+                    </Footer>
                 </Layout>
             </Layout>
         )

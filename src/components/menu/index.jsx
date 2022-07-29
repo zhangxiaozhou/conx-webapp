@@ -11,10 +11,6 @@ const items = [
                 label: <Link to="/section">路基分析</Link>, 
                 key: 'submenu-item-1' 
             }], 
-    },  
-    { 
-        label: <Link to="/demo">测试页面</Link>, 
-        key: 'item-2' 
     }
 ];
 

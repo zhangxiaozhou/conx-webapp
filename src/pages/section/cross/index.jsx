@@ -67,18 +67,21 @@ export default function CrossSection() {
         })
     }
 
-    const calColor = (passCount) => {
-        if (passCount == 1) {
-            return '#DDDDDD'
-        } else if (passCount == 2) {
-            return '#FFFC54'
-        } else if (passCount == 3) {
-            return '#9EF64D'
+    const calColor = (passCount) => { 
+        let color = '#DDDDDD'
+
+        if (passCount === 1) {
+            color = '#DDDDDD'
+        } else if (passCount === 2) {
+            color = '#FFFC54'
+        } else if (passCount === 3) {
+            color = '#9EF64D'
         } else if (passCount <= 4 && passCount >= 5) {
-            return '#F0855B'
+            color = '#F0855B'
         } else if (passCount >= 6) {
-            return '#001FC5'
-        }
+            color = '#001FC5'
+        } 
+        return color
     }
 
     return (
@@ -130,15 +133,14 @@ export default function CrossSection() {
                                 <div
                                     key={item.name + ':' + index}
                                     style={{
-                                        width: item.calWidth,
-                                        height: item.calHeight,
+                                        width: item.calWidth ,
+                                        height: item.calHeight ,
                                         position: 'absolute',
                                         backgroundColor: calColor(item.passCount),
-                                        left: item.xposition + 1300,
-                                        top: item.yposition - 2100,
-                                        border: '1px',
-                                        borderColor: '#ffffff',
-                                        borderStyle: "solid"
+                                        left: item.xposition - crossSectionData.x0 + 300,
+                                        top: item.yposition  - crossSectionData.y0 + 390,
+                                        borderTop: '1px solid white', 
+                                        borderRight: '1px solid white'
                                     }}>
                                 </div>
                         )

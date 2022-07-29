@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const BASE_URL = process.env.BASE_URL;
-const TIMEOUT = 50000;
+const TIMEOUT = 200000;
 
 const instance = axios.create({    // 创建axios实例，在这里可以设置请求的默认配置
   timeout: TIMEOUT, // 设置超时时间

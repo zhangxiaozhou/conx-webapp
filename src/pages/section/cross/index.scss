@@ -3,8 +3,12 @@
     height: calc(100%);
 
     .canvas {
-        width: calc(86%);
-        height: calc(80%);  
+        position:absolute;
+        width: 1400px;
+        height: 600px;  
         padding: 10px;
+        background-color: black;
+        //margin: 60px;
+        //overflow: auto;
     } 
 }

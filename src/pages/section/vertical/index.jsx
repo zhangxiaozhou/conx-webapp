@@ -66,18 +66,21 @@ export default function VerticalSection(){
         })
     }
 
-    const calColor = (passCount) => {
+    const calColor = (passCount) => { 
+        let color = '#DDDDDD'
+
         if (passCount === 1) {
-            return '#DDDDDD'
+            color = '#DDDDDD'
         } else if (passCount === 2) {
-            return '#FFFC54'
+            color = '#FFFC54'
         } else if (passCount === 3) {
-            return '#9EF64D'
+            color = '#9EF64D'
         } else if (passCount <= 4 && passCount >= 5) {
-            return '#F0855B'
+            color = '#F0855B'
         } else if (passCount >= 6) {
-            return '#001FC5'
-        }
+            color = '#001FC5'
+        } 
+        return color
     }
 
     return (
@@ -124,26 +127,27 @@ export default function VerticalSection(){
             <div className="canvas"> 
                 { 
                     crossSectionData.cgPoints.map((item, index) => {
-                        return (
-                            item.calWidth === 0 || item.calHeight === 0 ? '' :
-                                <div
+                        return ( 
+                            item.calWidth == 0 || item.calHeight == 0 ? '' :
+                                <span
                                     key={item.name + ':' + index}
                                     style={{
+                                        display:'inline-block',
                                         width: item.calWidth,
                                         height: item.calHeight,
                                         position: 'absolute',
                                         backgroundColor: calColor(item.passCount),
-                                        left: item.xposition - crossSectionData.x0,
-                                        top: item.yposition - crossSectionData.y0,
-                                        border: '1px',
-                                        borderColor: '#ffffff',
-                                        borderStyle: "solid"
-                                    }}>
-                                </div>
+                                        left: item.xposition - crossSectionData.x0 + 10,
+                                        top: item.yposition - crossSectionData.y0 + 200,  
+                                        borderTop: '3px solid white', 
+                                        borderRight: '1px solid white'
+                                    }}> 
+                                </span>
                         )
                     })
                 }
             </div>
+
         </div>
     )
 }
